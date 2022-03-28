@@ -36,6 +36,7 @@ export default function PlotGraph() {
       <Box display="flex" width="100%" gap={2} mb={4}>
         <Box flex={1}>
           <Autocomplete
+            disableClearable
             value={selectedCountry}
             onChange={(_, country) => {
               setSelectedCountry(country as AutoCompleteOption);
@@ -47,6 +48,7 @@ export default function PlotGraph() {
         </Box>
         <Box flex={1}>
           <Autocomplete
+            disableClearable
             value={selectedStatus}
             onChange={(_, status) => {
               setSelectedStatus(status as AutoCompleteOption);
