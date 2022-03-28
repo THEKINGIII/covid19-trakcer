@@ -15,9 +15,6 @@ import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 import LastPageIcon from '@mui/icons-material/LastPage';
 import { TableHead } from '@mui/material';
-import { useQuery } from 'react-query';
-import covidServiceClient from '../../../../Services/CovidService';
-import { Country, CountryStates } from '../../types';
 import useFetchCountriesChunk from '../hooks/useFetchCountriesChunk';
 
 interface TablePaginationActionsProps {
