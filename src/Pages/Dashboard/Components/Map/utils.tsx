@@ -4,10 +4,7 @@ import { CountryStates } from '../../types';
 import { casesTypeColors } from './constants';
 import { CaseType } from './types';
 
-export function showHeatMap(
-  countries: Record<string, CountryStates | CountryStates[]>,
-  casesType: CaseType = 'Confirmed'
-) {
+export function showHeatMap(countries: Record<string, CountryStates | CountryStates[]>, casesType: CaseType) {
   return Object.values(countries)
     .flat()
     .map((country) => (
