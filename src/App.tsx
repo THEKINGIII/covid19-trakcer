@@ -18,6 +18,7 @@ function App() {
       <CovidCountriesTable />
       <Box height="100vh" mt={2} display="flex" flexDirection="column" gap={2}>
         <Autocomplete
+          disableClearable
           value={selectedStatus}
           onChange={(_, status) => {
             setSelectedStatus(status as AutoCompleteOption);
