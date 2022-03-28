@@ -14,7 +14,6 @@ export const COUNTRIES_DATA_MAP = {
     Active: 169664,
     Date: '2022-03-27T00:00:00Z',
   },
-  undefined: null,
   AL: {
     ID: '70c01212-87b2-402a-aa08-ea5ce8ba6f7e',
     Country: 'Albania',

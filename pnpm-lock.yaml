@@ -6,13 +6,16 @@ specifiers:
   '@emotion/styled': ^11.8.1
   '@mui/icons-material': ^5.5.1
   '@mui/material': ^5.5.2
+  '@types/leaflet': ^1.7.9
   '@types/react': ^17.0.33
   '@types/react-dom': ^17.0.10
   '@vitejs/plugin-react': ^1.0.7
   axios: ^0.26.1
+  leaflet: ^1.7.1
   prettier: 2.6.1
   react: ^17.0.2
   react-dom: ^17.0.2
+  react-leaflet: ^3.2.5
   react-query: ^3.34.19
   typescript: ^4.5.4
   vite: ^2.8.0
@@ -24,11 +27,14 @@ dependencies:
   '@mui/icons-material': 5.5.1_af6b22bd81129713324316aecd007818
   '@mui/material': 5.5.2_9595c0fe4bca5fc99bf42a66077e39bf
   axios: 0.26.1
+  leaflet: 1.7.1
   react: 17.0.2
   react-dom: 17.0.2_react@17.0.2
+  react-leaflet: 3.2.5_91fa1427a3331e02931dfea77720a290
   react-query: 3.34.19_react-dom@17.0.2+react@17.0.2
 
 devDependencies:
+  '@types/leaflet': 1.7.9
   '@types/react': 17.0.43
   '@types/react-dom': 17.0.14
   '@vitejs/plugin-react': 1.2.0
@@ -593,12 +599,34 @@ packages:
     resolution: {integrity: sha512-q/ytXxO5NKvyT37pmisQAItCFqA7FD/vNb8dgaJy3/630Fsc+Mz9/9f2SziBoIZ30TJooXyTwZmhi1zjXmObYg==}
     dev: false
 
+  /@react-leaflet/core/1.1.1_91fa1427a3331e02931dfea77720a290:
+    resolution: {integrity: sha512-7PGLWa9MZ5x/cWy8EH2VzI4T8q5WpuHbixzCDXqixP/WyqwIrg5NDUPgYuFnB4IEIZF+6nA265mYzswFo/h1Pw==}
+    peerDependencies:
+      leaflet: ^1.7.1
+      react: ^17.0.1
+      react-dom: ^17.0.1
+    dependencies:
+      leaflet: 1.7.1
+      react: 17.0.2
+      react-dom: 17.0.2_react@17.0.2
+    dev: false
+
   /@rollup/pluginutils/4.2.0:
     resolution: {integrity: sha512-2WUyJNRkyH5p487pGnn4tWAsxhEFKN/pT8CMgHshd5H+IXkOnKvKZwsz5ZWz+YCXkleZRAU5kwbfgF8CPfDRqA==}
     engines: {node: '>= 8.0.0'}
     dependencies:
       estree-walker: 2.0.2
       picomatch: 2.3.1
+    dev: true
+
+  /@types/geojson/7946.0.8:
+    resolution: {integrity: sha512-1rkryxURpr6aWP7R786/UQOkJ3PcpQiWkAXBmdWc7ryFWqN6a4xfK7BtjXvFBKO9LjQ+MWQSWxYeZX1OApnArA==}
+    dev: true
+
+  /@types/leaflet/1.7.9:
+    resolution: {integrity: sha512-H8vPgD49HKzqM41ArHGZM70g/tfhp8W+JcPxfnF+5H/Xvp+xiP+KQOUNWU8U89fqS1Jj3cpRY/+nbnaHFzwnFA==}
+    dependencies:
+      '@types/geojson': 7946.0.8
     dev: true
 
   /@types/parse-json/4.0.0:
@@ -1135,6 +1163,10 @@ packages:
     engines: {node: '>=6'}
     hasBin: true
 
+  /leaflet/1.7.1:
+    resolution: {integrity: sha512-/xwPEBidtg69Q3HlqPdU3DnrXQOvQU/CCHA1tcDQVzOwm91YMYaILjNp7L4Eaw5Z4sOYdbBz6koWyibppd8Zqw==}
+    dev: false
+
   /lines-and-columns/1.2.4:
     resolution: {integrity: sha512-7ylylesZQ/PV29jhEDl3Ufjo6ZX7gCqJr5F7PKrqc93v7fzSymt1BpwEU8nAUXs8qzzvqhbjhK5QZg6Mt/HkBg==}
     dev: false
@@ -1274,6 +1306,19 @@ packages:
 
   /react-is/17.0.2:
     resolution: {integrity: sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w==}
+    dev: false
+
+  /react-leaflet/3.2.5_91fa1427a3331e02931dfea77720a290:
+    resolution: {integrity: sha512-Z3KZ+4SijsRbbrt2I1a3ZDY6+V6Pm91eYTdxTN18G6IOkFRsJo1BuSPLFnyFrlF3WDjQFPEcTPkEgD1VEeAoBg==}
+    peerDependencies:
+      leaflet: ^1.7.1
+      react: ^17.0.1
+      react-dom: ^17.0.1
+    dependencies:
+      '@react-leaflet/core': 1.1.1_91fa1427a3331e02931dfea77720a290
+      leaflet: 1.7.1
+      react: 17.0.2
+      react-dom: 17.0.2_react@17.0.2
     dev: false
 
   /react-query/3.34.19_react-dom@17.0.2+react@17.0.2:

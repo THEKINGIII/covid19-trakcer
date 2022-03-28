@@ -34,7 +34,6 @@ function useFetchCountriesChunk(page = 1) {
 
         // @ts-ignore
         await Promise.all<Array<CountryStates[]>>(chunkedData).then((data) => {
-          console.log({ data });
           const mappedData = data.map((status: CountryStates[], index) => {
             const [countryStatus] = status;
 
