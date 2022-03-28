@@ -1,18 +1,12 @@
 import * as React from 'react';
 import covidServiceClient from '../../../../Services/CovidService';
 import { Country, CountryInformationState, CountryStates } from '../../types';
-import { queryClient } from '../../../../Utils/queryClient';
 import { useQuery } from 'react-query';
 
 function useFetchCountriesChunk(page = 1) {
-  const [fetchedCountriesIdList, setFetchedCountriesIdList] = React.useState([]);
   const [countriesInformation, setCountriesInformation] = React.useState<CountryInformationState[]>([]);
 
-  const {
-    data: countries,
-    isLoading,
-    isError,
-  } = useQuery(['countries'], () => covidServiceClient.getCountries<Country[]>());
+  const { data: countries, isLoading } = useQuery(['countries'], () => covidServiceClient.getCountries<Country[]>());
 
   const sortedCountries = React.useMemo(() => {
     return countries?.sort((firstCountry, secondCountry) => firstCountry.Slug.localeCompare(secondCountry.Slug));

@@ -1,19 +1,36 @@
 import * as React from 'react';
-import { Container, Typography } from '@mui/material';
-import covidServiceClient from './Services/CovidService';
-import { useQuery } from 'react-query';
-import { useQueries } from 'react-query/types/ts3.8';
+import { Box, Container, Typography } from '@mui/material';
 import CovidCountriesTable from './Pages/Dashboard/Components/CovidCountriesTable';
 import Map from './Pages/Dashboard/Components/Map';
+import PlotGraph from './Pages/Dashboard/Components/PlotGraph';
+import { AutoCompleteOption } from './Pages/Dashboard/Components/PlotGraph/types';
+import { MAPPED_STATUSES } from './Pages/Dashboard/Components/PlotGraph/constants';
+import TextField from '@mui/material/TextField';
+import Autocomplete from '@mui/material/Autocomplete';
+import { CaseType } from './Pages/Dashboard/Components/Map/types';
 
 function App() {
+  const [selectedStatus, setSelectedStatus] = React.useState<AutoCompleteOption>(MAPPED_STATUSES[0]);
+
   return (
     <Container maxWidth={'xl'}>
       <Typography variant={'h1'}>Covid Tracker</Typography>
       <CovidCountriesTable />
-      <div style={{ width: '100vw', height: '100vh' }}>
-        <Map />
-      </div>
+      <Box height="100vh" mt={2} display="flex" flexDirection="column" gap={2}>
+        <Autocomplete
+          value={selectedStatus}
+          onChange={(_, status) => {
+            setSelectedStatus(status as AutoCompleteOption);
+          }}
+          disablePortal
+          options={MAPPED_STATUSES}
+          renderInput={(params) => <TextField {...params} label="Select a status" />}
+        />
+        <Map status={selectedStatus.value as CaseType} />
+      </Box>
+      <Box mt={2}>
+        <PlotGraph />
+      </Box>
     </Container>
   );
 }
